@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/uni.lu.house/src" modelPluginID="uni.lu.house"
+    modelName="House" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="7.0" copyrightFields="false"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>house.ecore</foreignModel>
+  <genPackages prefix="House" disposableProviderFactory="true" ecorePackage="house.ecore#/">
+    <genClasses ecoreClass="house.ecore#//House">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute house.ecore#//House/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference house.ecore#//House/rooms"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference house.ecore#//House/domesticRobots"/>
+      <genOperations ecoreOperation="house.ecore#//House/globalClose"/>
+      <genOperations ecoreOperation="house.ecore#//House/globalOpen"/>
+      <genOperations ecoreOperation="house.ecore#//House/presenceGoOutsideEvent"/>
+    </genClasses>
+    <genClasses ecoreClass="house.ecore#//Room">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference house.ecore#//Room/windows"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference house.ecore#//Room/doors"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference house.ecore#//Room/heaters"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference house.ecore#//Room/connections"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute house.ecore#//Room/name"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute house.ecore#//Room/light"/>
+      <genOperations ecoreOperation="house.ecore#//Room/closeWindows"/>
+    </genClasses>
+    <genClasses ecoreClass="house.ecore#//CleaningRobot">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference house.ecore#//CleaningRobot/position"/>
+      <genOperations ecoreOperation="house.ecore#//CleaningRobot/pathToInitialRoom"/>
+    </genClasses>
+    <genClasses ecoreClass="house.ecore#//Window"/>
+    <genClasses ecoreClass="house.ecore#//Door"/>
+    <genClasses ecoreClass="house.ecore#//Heater">
+      <genOperations ecoreOperation="house.ecore#//Heater/adjustHeating"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="house.ecore#//Openable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute house.ecore#//Openable/open"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
