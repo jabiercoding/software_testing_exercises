@@ -1,17 +1,26 @@
 package casino;
 
+/**
+ * Dice Game
+ */
 public class DiceGame {
-	public int play(Dice dice1, Dice dice2) {
-		int d1n = dice1.throwDice();
-		int d2n = dice2.throwDice();
-		if (d1n == 6 && d2n == 6) {
-			System.out.println("Send mail to the director of the casino");
+
+	/**
+	 * Play: We throw two six-sided dice once. We will have 1 million if we
+	 * obtain two 6s, and 1 thousand if the sum is 11, otherwise we get 0. In
+	 * case of two 6s the director of the casino will be notified.
+	 * 
+	 * @param dice1
+	 * @param dice2
+	 * @return the amount of money won by the player
+	 */
+	public int play(Dice dice1, Dice dice2, NotificationSystem notificationSystem) {
+		if (dice1.throwDice() == 6 && dice2.throwDice() == 6) {
+			notificationSystem.sendAlertToTheDirector("Someone won 1 million in the Dice Game");
 			return 1000000;
-		}
-		if (d1n == 6 && d2n == 5) {
+		} else if (dice1.throwDice() == 6 && dice2.throwDice() == 5) {
 			return 1000;
-		}
-		if (d1n == 5 && d2n == 6) {
+		} else if (dice1.throwDice() == 5 && dice2.throwDice() == 6) {
 			return 1000;
 		}
 		return 0;
